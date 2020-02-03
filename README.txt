@@ -64,13 +64,13 @@ Name: functions.cpp
        % unzip 2188HW1
 
    Now you should see a directory named homework with the files:
-        main.cpp
-        guess.h
-        guess.cpp
-	    functions.h
-	    functions.cpp
-        makefile
-        Readme.txt
+    main.cpp
+      guess.h
+      guess.cpp
+      functions.h
+      functions.cpp
+      makefile
+      Readme.txt
 
 2. Build the program.
 
