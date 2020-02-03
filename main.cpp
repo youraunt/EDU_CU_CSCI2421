@@ -21,17 +21,18 @@ int main() {
                       << GAME_EXPLANATION << std::endl;
             const int min = 1;
             int max = maxRange();
-            unsigned int size = numIntToGuess();
-
+            unsigned int intToGuess = numIntToGuess();
 
             /// @brief 1 instance is initialized here this call generates random numbers
-            GuessingGame instance(min, max, size);
+            game instance(min, max, intToGuess);
 
             /// @brief activate 1 instance of game
             instance.startGuess();
 
             /// @brief Call playAgain function to handle user input
             int anotherRound = playAgain();
+            /// @brief if play again returns anything other that 'Y"
+            /// @brief call exitProgram Function
             if (anotherRound != 'Y') exitProgram();
         }///#while
     } catch (const std::exception &) {

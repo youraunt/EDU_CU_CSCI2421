@@ -17,7 +17,7 @@
 
 using namespace std;
 
-class GuessingGame {
+class game {
 
 private:
     vector<int> randomIntegers;
@@ -27,7 +27,7 @@ private:
 
 
 public:
-    GuessingGame(unsigned int min, int max, unsigned int size);
+    game(unsigned int min, int max, unsigned int size);
     void startGuess();
     unsigned int correctAnswers(vector<int> *guesses);
 };

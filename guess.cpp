@@ -4,7 +4,7 @@
 #include "guess.h"
 #include <iostream>
 
-GuessingGame::GuessingGame (unsigned int min, int max, unsigned int size) {
+game::game (unsigned int min, int max, unsigned int size) {
     /// @brief  create object for seeding
     std::random_device randomDevice;
     /// @brief create engine and seed it
@@ -23,10 +23,10 @@ GuessingGame::GuessingGame (unsigned int min, int max, unsigned int size) {
         //         but I don't know that it affects the program
         this->randomIntegers.push_back(dist20(engine));
     }
-}
+}///# game
 
 /// @brief game play happens here
-void GuessingGame::startGuess() {
+void game::startGuess() {
     /// @brief each game has up to three rounds
     int rounds = 3;
     /// @brief while loops until rounds are depleted or until user wins the game
@@ -37,7 +37,7 @@ void GuessingGame::startGuess() {
 
         /// @brief Explain the game.
         std::cout << "\nEnter your guesses for the " << this->size
-                  << " integer(s) in the range from " << GuessingGame::min
+                  << " integer(s) in the range from " << game::min
                   << " to " << this->max << "." << std::endl
                   << "\nRounds remaining: " << rounds << std::endl;
 
@@ -73,39 +73,32 @@ void GuessingGame::startGuess() {
 }///#startGuess
 
 
-unsigned int GuessingGame::correctAnswers(vector<int> *guesses) {
+unsigned int game::correctAnswers(vector<int> *guesses) {
 
     /// @brief Copy both vectors to eliminate duplication false positives.
-    /// @brief When a correct answer is provided the mathcing element is removed.
+    /// @brief When a correct answer is provided the matching element is removed.
     vector<int> unusedGuesses(*guesses);
     vector<int>unmatchedRandomIntegers(this->randomIntegers);
 
     /// @brief This is a counter for correct answers.
     unsigned int correctGuessCount = 0;
 
-    //Compare every guess to every secret number
-    // If there's a match, it's a correct guess.
-    //   Increment the count then remove the pair from the storage vectors
-    /// @brief
+
+    /// @brief These for loops compare guesses against unmatched answers
+    /// @brief When a match is identified  and the item is removed from both vectors
+    /// @brief We then decrement i because we will want to check that index again
+    /// @brief for potential future matches
+    /// @brief Next the counter is incremented
     for (unsigned int i = 0; i < unusedGuesses.size(); i++) {
         for (unsigned int j = 0; j < unmatchedRandomIntegers.size(); j++) {
-            //If the guess matches the number, we found a correct guess
             if (unusedGuesses[i] == unmatchedRandomIntegers[j]) {
-                //Erase the pair to avoid double count
                 unmatchedRandomIntegers.erase(unmatchedRandomIntegers.begin() + j);
                 unusedGuesses.erase(unusedGuesses.begin() + i);
-
-                //Decrement i because we removed an element and i is about to be incremented.
-                // We actually need to check the same index again.
-                // j doesn't need to be decremented because we're about to break out of this loop.
                 i--;
-
-                //Increment the guess count; that's the whole point of this
                 correctGuessCount++;
-
                 break;
-            }
-        }
-    }
+            }///# if
+        }///# for j
+    }///# for i
     return correctGuessCount;
-}
+}///#correctAnswers
