@@ -67,15 +67,15 @@ Name: functions.cpp
         main.cpp
         guess.h
         guess.cpp
-	    functions.h
-	    functions.cpp
+	functions.h
+    	functions.cpp
         makefile
         Readme.txt
 
 2. Build the program.
 
     Change to the directory that contains the file by:
-    % cd [2188HW1] 
+    % cd 2188HW1 
 
     Compile the program by:
     % make
