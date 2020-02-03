@@ -17,7 +17,7 @@ void unknownInput();
 
 int maxRange();
 
-unsigned int numberOfElements();
+unsigned int numIntToGuess();
 
 std::string exitProgram();
 

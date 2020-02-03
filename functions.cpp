@@ -1,8 +1,6 @@
 #include "functions.h"
 
 
-
-
 /// @brief Exits program successfully with message
 std::string exitProgram() {
     std::cout << "Exiting program!" << std::endl;
@@ -18,40 +16,46 @@ void unknownInput() {
 
 }
 
+/// @brief Function to handle user input 
+///        handles whether or not to play another game
+/// @return user input in its capital state
 int playAgain() {
-    std::cout << "\nPlay again? (Y/N)" << std::endl;
-    std::cout << "> ";
+    std::cout << "\nPlay again? (Y/N)" << std::endl
+              << "> ";
     char userInput;
 
     std::cin >> userInput;
-    int userInputCap = toupper(userInput);
-    return userInputCap;
+    /// @brief I used int here to avoid implicit conversions
+    int userInputCapital = toupper(userInput);
+
+    return userInputCapital;
 }
 
-unsigned int numberOfElements() {
-    unsigned int numberItems = 0;
-    while (numberItems <= 0) {
-        std::cout << "\nPlease enter your n, the number of integer(s) to guess" << std::endl
+/// @brief Function to handle user input
+///        asks user to input their n value
+/// @return
+unsigned int numIntToGuess() {
+    unsigned int numIntToGuess = 0;
+    do {
+        std::cout << "\nPlease enter your n, the number of integers to guess." << std::endl
                   << "> ";
-        if (!(std::cin >> numberItems)) {
-            std::cout << "The number must be positive." << std::endl
-                      << "Please try again" << std::endl;
-            std::cin.clear();
-        }
-    }
-    return numberItems;
+        std::cin >> numIntToGuess;
+
+    } while (numIntToGuess < 0);
+    return numIntToGuess;
 }
 
+/// @brief
+/// @return
 int maxRange() {
-    int tempMax = 0;
-    while (tempMax <= 0) {
-        std::cout << "\nPlease enter your m value, the maximum range within which you shall guess" << std::endl
-                  << "> ";
-        if (!(std::cin >> tempMax)) {
-            std::cout << "The number must be positive." << std::endl
-                      << "Please try again" << std::endl;
-            std::cin.clear();
-        }
-    }
+    int tempMax ;
+    do {
+        std::cout << "\nPlease enter your m value, the maximum range within which you shall guess"<< std::endl
+                << "Must be two or greater." << std::endl
+                << "> ";
+        std::cin >> tempMax;
+        }while (tempMax < 2);
     return tempMax;
-}
+    }
+
+

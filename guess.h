@@ -29,7 +29,7 @@ private:
 public:
     GuessingGame(unsigned int min, int max, unsigned int size);
     void startGuess();
-    unsigned int correctGuesses(vector<int> *guesses);
+    unsigned int correctAnswers(vector<int> *guesses);
 };
 
 

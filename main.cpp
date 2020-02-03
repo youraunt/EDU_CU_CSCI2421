@@ -9,8 +9,6 @@
 using namespace std;
 
 
-
-
 int main() {
     try {
         while (true) {
@@ -23,7 +21,7 @@ int main() {
                       << GAME_EXPLANATION << std::endl;
             const int min = 1;
             int max = maxRange();
-            unsigned int size = numberOfElements();
+            unsigned int size = numIntToGuess();
 
 
             /// @brief 1 instance is initialized here this call generates random numbers
@@ -32,7 +30,7 @@ int main() {
             /// @brief activate 1 instance of game
             instance.startGuess();
 
-            //Ask the user if they'd like to play again. If not, quit.
+            /// @brief Call playAgain function to handle user input
             int anotherRound = playAgain();
             if (anotherRound != 'Y') exitProgram();
         }///#while
