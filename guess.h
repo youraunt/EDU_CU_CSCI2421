@@ -1,14 +1,11 @@
 //
-// Created by BK Allen on 2/2/20.
+// Created by BK Allen on 1/31/20.
 //
 
 #ifndef INC_2188HW1_GUESS_H
 #define INC_2188HW1_GUESS_H
 
 
-//
-// Created by BK Allen on 1/31/20.
-//
 
 
 #include <vector>

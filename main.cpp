@@ -1,3 +1,6 @@
+//
+// Created by BK Allen on 1/31/20.
+//
 
 
 #include "guess.h"
@@ -5,9 +8,6 @@
 
 /// @brief Debugging lambda
 #define WHAT_IS(x) std::cerr << #x << " is " << x << std::endl;
-
-using namespace std;
-
 
 int main() {
     try {
