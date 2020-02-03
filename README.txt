@@ -14,10 +14,12 @@
 *  Description of the program
 *******************************************************
 
-The program "2188HW1" reads integers from a data file, and uses
-the data to implement two matrices.  It then outputs the matrices,
-and computes and outputs the sum and product of the matrices.
-
+The program "2188HW1" takes input form the user, and uses
+the data to implement random numbers stored in two vectors.
+It then allows the user to guess random integers in the range
+they provided. The game allows for three rounds, but will terminate
+the current game instance if all integers are matched. The game will
+ask if the use would like to play another game.
 
 *******************************************************
 *  Source files
@@ -25,23 +27,22 @@ and computes and outputs the sum and product of the matrices.
 
 Name:  main.cpp
    Main program.  This is the driver program that calls sub-functions
-   to read data from an input file, use the data to create two matrices,
-   and compute and display their sum and product.
+   to read data from an user, use the data to create two vectors,
+   and play the game.
 
-Name:  matrix.h
-   Contains the definition for the class matrix.  
+Name:  guess.h
+   Contains the definition for the class guess.
 
-Name: matrix.cpp
-   Defines and implements the matrix class for implementing a matrix.  
-   This class provides routines to construct and get the matrix, as
-   well as overloaded operators to add and multpliply two matrices.
+Name: guess.cpp
+   Defines and implements the guess class for implementing a game object.
+   This class provides routines to randomize numbers using a random_device
+   to seed a mersenne twister engine.
 
-Name: matrix_functions.h
+Name: functions.h
    Contains the prototypes for the matrix program support functions.
 
-Name: matrix_functions.cpp
-   Includes functions to display a greeting, populate two arrays
-   from a data file, and display the sum and product of two matrices.
+Name: functions.cpp
+   Includes functions to display a greeting, and handle user input.
    
    
 *******************************************************
@@ -51,7 +52,7 @@ Name: matrix_functions.cpp
    The program runs successfully.  
    
    The program was developed and tested on gnu g++ 4.4.2.  It was 
-   compiled, run, and tested on gcc ouray.cudenver.edu.
+   compiled, run, and tested on gcc csegrid.ucdenver.pvt.
 
 
 *******************************************************
@@ -60,7 +61,7 @@ Name: matrix_functions.cpp
 
 1. Uncompress the homework.  The homework file is compressed.  
    To uncompress it use the following commands 
-       % unzip [1234HW1]
+       % unzip 2188HW1
 
    Now you should see a directory named homework with the files:
         main.cpp
@@ -80,7 +81,7 @@ Name: matrix_functions.cpp
     % make
 
 3. Run the program by:
-   % ./[2188HW1]
+   % ./2188HW1
 
 4. Delete the obj files, executables, and core dump by
    %./make clean
